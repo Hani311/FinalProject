@@ -1,0 +1,218 @@
+﻿@model IEnumerable<FinalProject.Models.Car>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Cars List</h1>
+
+<p>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <a asp-action="Create">Create New</a>
+    }
+
+</p>
+<table class="table">
+        
+                          
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.Brand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModelYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Color)
+            </th>
+            <th>
+                @if (User.Identity.IsAuthenticated)
+                {
+                @Html.DisplayNameFor(model => model.Bought)
+                }
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sell)
+            </th>
+         
+            <th>
+                @Html.DisplayNameFor(model => model.AgentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+
+
+    <tbody>
+
+@foreach (var item in Model) 
+ {
+            @if (item.Status == "Sold" && User.Identity.IsAuthenticated)
+            {
+         
+
+        <tr>
+               <td>
+                <div id="img" class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                 <img src="@item.Image" class="img-fluid"  width="120px" height="120px" />
+             <a href="#!">
+             <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+             </a>
+            </div>
+                
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+         
+            <td>
+
+                @Html.DisplayFor(modelItem => item.ModelYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+            <td>
+            @if (User.Identity.IsAuthenticated)
+            {
+             @Html.DisplayFor(modelItem => item.Bought)   
+            }
+                
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sell)
+            </td>
+         
+            <td>
+                @Html.DisplayFor(modelItem => item.AgentName)
+            </td>
+            <td>
+                @if (item.Status == "Available"){
+                        <span class="badge bg-success">Available</span>
+
+                    }
+                    else
+                    {
+                        <span class="badge bg-danger">Sold</span>
+                    }
+
+                
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> 
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+
+                            
+                        }
+                        
+
+            </td>
+                </tr>
+            }
+            else
+            {
+                @if(item.Status == "Available")
+                {
+                     <tr>
+               <td>
+                <div id="img" class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                 <img src="@item.Image" class="img-fluid" width="120px" height="120px" />
+             <a href="#!">
+             <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+             </a>
+            </div>
+                
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModelYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+            <td>
+            @if (User.Identity.IsAuthenticated)
+            {
+             @Html.DisplayFor(modelItem => item.Bought)   
+            }
+                
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sell)
+            </td>
+         
+            <td>
+                @Html.DisplayFor(modelItem => item.AgentName)
+            </td>
+            <td>
+                @if (item.Status == "Available"){
+                        <span class="badge bg-success">Available</span>
+
+                    }
+                    else
+                    {
+                        <span class="badge bg-danger">Sold</span>
+                    }
+
+                
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> 
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+
+                        }
+                        
+
+            </td>
+        </tr>
+                }
+            }
+        }
+    </tbody>
+</table>
