@@ -15,8 +15,7 @@
 
 </p>
 <table class="table">
-        
-                          
+           
     <thead>
         <tr>
             <th>
@@ -61,16 +60,12 @@
         </tr>
     </thead>
 
-
-
     <tbody>
 
 @foreach (var item in Model) 
  {
             @if (item.Status == "Sold" && User.Identity.IsAuthenticated)
             {
-         
-
         <tr>
                <td>
                 <div id="img" class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
@@ -119,7 +114,6 @@
                         <span class="badge bg-danger">Sold</span>
                     }
 
-                
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Phone)
@@ -134,10 +128,7 @@
                             <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
                             <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
 
-                            
                         }
-                        
-
             </td>
                 </tr>
             }
@@ -191,7 +182,6 @@
                         <span class="badge bg-danger">Sold</span>
                     }
 
-                
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Phone)
@@ -205,9 +195,7 @@
                     {
                             <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
                             <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-
                         }
-                        
 
             </td>
         </tr>
