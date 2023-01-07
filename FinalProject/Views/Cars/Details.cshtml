@@ -44,7 +44,7 @@
                 <tr>
                     <th>@Html.DisplayNameFor(model => model.Status)</th>
                     <td>
-                        @if (Model.Status == "Available")
+                        @if (Model.Status == "Available")  // color the text depends on the status of the car
                         {
                             <span class="badge bg-success">Available</span>
                         }
@@ -68,7 +68,7 @@
 </div>
 
 <div class="text-center mt-4">
-     @if (User.Identity.IsAuthenticated)
+     @if (User.Identity.IsAuthenticated)  // the edit button will only show to authernticated users
                     {
     <a asp-action="Edit" class="btn btn-primary" asp-route-id="@Model?.Id">Edit</a> 
                     }
