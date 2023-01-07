@@ -5,5 +5,7 @@
 As an authentecaed user in the site such as a staff or agent you will be able to edit information about the cars, delete and even add new car that will be showen in the website for everyone.
 The home page contain a navigation to help the user navigate through the site and a simple image slider
 The on the right side of the navigation can show different type of informations, normally the website will show a login button but this function will only be available for authentecated users to login and be able to edit on the website.
-![Navigation] (https://www.linkpicture.com/q/loged-out.png)
-![Navigation] (https://www.linkpicture.com/q/loged-in_1.png)
+
+![Navigation] (https://user-images.githubusercontent.com/57943681/211151866-1d8367d6-94ac-4232-828f-3665b8c632f1.PNG)
+
+![Navigation] (https://user-images.githubusercontent.com/57943681/211151875-ac9a8932-ed88-4c59-b455-378eb8920e68.PNG)
