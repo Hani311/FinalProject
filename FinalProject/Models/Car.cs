@@ -1,4 +1,5 @@
 ﻿namespace FinalProject.Models
+
 {
     public class Car
     {

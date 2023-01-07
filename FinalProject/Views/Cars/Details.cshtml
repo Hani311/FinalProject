@@ -6,79 +6,71 @@
 
 <h1>Details</h1>
 
-<div>
-    <h4>Car</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            <img src="@Model.Image" alt="" class="img-fluid" width="230" height="230">
-        </dt>
-        <bt></bt>
-
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Brand)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Brand)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Model)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Model)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ModelYear)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ModelYear)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Color)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Color)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Bought)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Bought)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Sell)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Sell)
-        </dd>
-        
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AgentName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AgentName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Status)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Status)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Phone)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Phone)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-    </dl>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-sm-3">
+            <img src="@Model.Image" alt="" class="img-fluid" width="350" height="350">
+        </div>
+        <div class="col-sm-9">
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Brand)</th>
+                    <td>@Html.DisplayFor(model => model.Brand)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Model)</th>
+                    <td>@Html.DisplayFor(model => model.Model)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.ModelYear)</th>
+                    <td>@Html.DisplayFor(model => model.ModelYear)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Color)</th>
+                    <td>@Html.DisplayFor(model => model.Color)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Bought)</th>
+                    <td>@Html.DisplayFor(model => model.Bought)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Sell)</th>
+                    <td>@Html.DisplayFor(model => model.Sell)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.AgentName)</th>
+                    <td>@Html.DisplayFor(model => model.AgentName)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Status)</th>
+                    <td>
+                        @if (Model.Status == "Available")
+                        {
+                            <span class="badge bg-success">Available</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-danger">Sold</span>
+                        }
+                        </td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Phone)</th>
+                    <td>@Html.DisplayFor(model => model.Phone)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Email)</th>
+                    <td>@Html.DisplayFor(model => model.Email)</td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
+<div class="text-center mt-4">
+     @if (User.Identity.IsAuthenticated)
+                    {
+    <a asp-action="Edit" class="btn btn-primary" asp-route-id="@Model?.Id">Edit</a> 
+                    }
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
 </div>

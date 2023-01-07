@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using FinalProject.Data;
+﻿using FinalProject.Data;
 using FinalProject.Models;
-using Microsoft.AspNetCore.Authorization;
-using System.Data;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace FinalProject.Controllers
 {
@@ -24,7 +17,7 @@ namespace FinalProject.Controllers
         // GET: Cars
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Cars.ToListAsync());
+            return View(await _context.Cars.ToListAsync());
         }
 
         // GET: Cars/Details/5
@@ -150,17 +143,17 @@ namespace FinalProject.Controllers
             {
                 _context.Cars.Remove(car);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool CarExists(int id)
         {
-          return _context.Cars.Any(e => e.Id == id);
+            return _context.Cars.Any(e => e.Id == id);
         }
 
 
-    
+
     }
 }
